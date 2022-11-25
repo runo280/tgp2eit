@@ -1,5 +1,6 @@
 import base64
 import re
+from collections.abc import Iterable
 from enum import unique
 
 from telethon.tl.types import MessageEntityTextUrl, KeyboardButtonUrl
@@ -32,9 +33,10 @@ if __name__ == "__main__":
                         for kr in r.buttons:
                             unique_list.append(kr.url)
             if hasattr(p, 'entities'):
-                for e in p.entities:
-                    if isinstance(e, MessageEntityTextUrl):
-                        unique_list.append(e.url)
+                if isinstance(p.entities, Iterable):
+                    for e in p.entities:
+                        if isinstance(e, MessageEntityTextUrl):
+                            unique_list.append(e.url)
 
     unique_list = list(set(unique_list))
 
