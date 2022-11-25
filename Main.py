@@ -11,6 +11,12 @@ from api import *
 from post import Proxy
 from env import *
 
+
+def add2list(mlist, item):
+    if 'https://t.me/proxy?server' in item or 'tg://proxy?server' in item:
+        mlist.append(item)
+
+
 if __name__ == "__main__":
 
     # get tg session
@@ -31,12 +37,12 @@ if __name__ == "__main__":
                 if hasattr(p.reply_markup, 'rows'):
                     for r in p.reply_markup.rows:
                         for kr in r.buttons:
-                            unique_list.append(kr.url)
+                            add2list(unique_list, kr.url)
             if hasattr(p, 'entities'):
                 if isinstance(p.entities, Iterable):
                     for e in p.entities:
                         if isinstance(e, MessageEntityTextUrl):
-                            unique_list.append(e.url)
+                            add2list(unique_list, kr.url)
 
     unique_list = list(set(unique_list))
 
