@@ -31,9 +31,10 @@ if __name__ == "__main__":
                     for r in p.reply_markup.rows:
                         for kr in r.buttons:
                             unique_list.append(kr.url)
-            for e in p.entities:
-                if isinstance(e, MessageEntityTextUrl):
-                    unique_list.append(e.url)
+            if hasattr(p, 'entities'):
+                for e in p.entities:
+                    if isinstance(e, MessageEntityTextUrl):
+                        unique_list.append(e.url)
 
     unique_list = list(set(unique_list))
 
