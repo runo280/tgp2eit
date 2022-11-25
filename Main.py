@@ -42,7 +42,7 @@ if __name__ == "__main__":
                 if isinstance(p.entities, Iterable):
                     for e in p.entities:
                         if isinstance(e, MessageEntityTextUrl):
-                            add2list(unique_list, kr.url)
+                            add2list(unique_list, e.url)
 
     unique_list = list(set(unique_list))
 
