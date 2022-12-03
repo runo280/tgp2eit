@@ -1,7 +1,8 @@
-from env import *
-from os.path import isfile
-import requests
 import json
+
+import requests
+
+from env import *
 
 
 def cleanCaption(caption):

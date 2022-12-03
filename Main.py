@@ -1,15 +1,13 @@
 import base64
-import re
 from collections.abc import Iterable
-from enum import unique
 
-from telethon.tl.types import MessageEntityTextUrl, KeyboardButtonUrl
+from telethon.tl.types import MessageEntityTextUrl
 
 import db
 from Telegram import MyTelegram
 from api import *
-from post import Proxy
 from env import *
+from post import Proxy
 
 
 def add2list(mlist, item):
