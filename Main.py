@@ -53,9 +53,13 @@ if __name__ == "__main__":
     print(list_to_db)
     db.add_to_db(list_to_db)
 
+    message = ""
     for p in db.get_publish_queue():
-        r = send_message(p['url'])
-        if r['ok']:
+        message = p['url'] + "\n\n"
+    
+    r = send_message(message)
+    if r['ok']:
+        for p in db.get_publish_queue():
             db.set_published(p['_id'])
 
     # save tg session
