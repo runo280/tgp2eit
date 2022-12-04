@@ -55,12 +55,12 @@ if __name__ == "__main__":
     for p in db.get_publish_queue():
         message += p['url'] + "\n\n"
 
-    r = send_message(message)
-
-    print(r)
-    if r['ok']:
-        for p in db.get_publish_queue():
-            db.set_published(p['_id'])
+    if len(message.strip()) > 20:
+        r = send_message(message)
+        print(r)
+        if r['ok']:
+            for p in db.get_publish_queue():
+                db.set_published(p['_id'])
 
     # save tg session
     with open("seasion.session", "rb") as img_file:
