@@ -55,6 +55,7 @@ if __name__ == "__main__":
     for p in db.get_publish_queue():
         message += p['url'] + "\n\n"
     print(message)
+
     r = send_message(message)
     if r['ok']:
         for p in db.get_publish_queue():
