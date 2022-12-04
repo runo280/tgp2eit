@@ -48,7 +48,7 @@ if __name__ == "__main__":
     for url in unique_list:
         proxy = Proxy(url)
         list_to_db.append(proxy)
-    print(list_to_db)
+    # print(list_to_db)
     db.add_to_db(list_to_db)
 
     message = ""
