@@ -48,19 +48,12 @@ if __name__ == "__main__":
     for url in unique_list:
         proxy = Proxy(url)
         list_to_db.append(proxy)
-    # print(list_to_db)
     db.add_to_db(list_to_db)
 
-    message = ""
     for p in db.get_publish_queue():
-        message += p['url'] + "\n\n"
-
-    if len(message.strip()) > 20:
-        r = send_message(message)
-        print(r)
+        r = send_message(p['url'])
         if r['ok']:
-            for p in db.get_publish_queue():
-                db.set_published(p['_id'])
+            db.set_published(p['_id'])
 
     # save tg session
     with open("seasion.session", "rb") as img_file:
