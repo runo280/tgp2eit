@@ -140,7 +140,7 @@ pyasn1 = ">=0.1.3"
 
 [[package]]
 name = "telethon"
-version = "1.25.4"
+version = "1.26.0"
 description = "Full-featured Telegram client library for Python 3"
 category = "main"
 optional = false
