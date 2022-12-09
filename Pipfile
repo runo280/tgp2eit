@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-telethon = "1.21.1"
+telethon = "1.26.0"
 pylint = "2.7.4"
 
 [requires]
