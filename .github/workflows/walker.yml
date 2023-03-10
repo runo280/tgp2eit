@@ -1,8 +1,9 @@
 name: Walk and Publish 
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '0 */1 * * *' # every three hour
+    - cron:  '0 */12 * * *' # every 12 hour
   push:
     branches:
       - main
@@ -37,4 +38,4 @@ jobs:
           tgPass: ${{ secrets.tgPass }}
           tgPhone: ${{ secrets.tgPhone }}
         run: |
-          python Main.py
+          python surf.py
