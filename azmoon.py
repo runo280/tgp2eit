@@ -38,12 +38,12 @@ if __name__ == "__main__":
                 p.download_media(file=filename)
                 if length < 1400:
                     r = send_file(text, filename)
-                    print(r)
+                    # print(r)
                     # delete_msg_file(filename)
                 else:
                     r = send_file("", filename)
                     time.sleep(30)
-                    print(r)
+                    # print(r)
                     r2 = send_message(text)
                     # delete_msg_file(filename)
 
