@@ -22,7 +22,7 @@ class MyTelegram:
         self._password = password
 
         self._client = TelegramClient(self._name, self._api_id, self._api_hash, proxy=(
-            "socks5", '127.0.0.1', 2080)) if (utils.is_offline()) else TelegramClient(self._name, self._api_id,
+            "socks5", '127.0.0.1', 9150)) if (utils.is_offline()) else TelegramClient(self._name, self._api_id,
                                                                                       self._api_hash)
 
         self._client.connect()
@@ -49,6 +49,9 @@ class MyTelegram:
 
     def get_latest_posts(self, peer_id):
         return self._client.get_messages(peer_id, limit=20)
+
+    def get_latest_posts(self, peer_id, count):
+        return self._client.get_messages(peer_id, limit=count)
 
     def get_message_by_id(self, peer_id, post_id):
         return self._client.get_messages(peer_id, ids=post_id)
